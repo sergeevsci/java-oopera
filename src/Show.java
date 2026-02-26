@@ -13,15 +13,18 @@ public class Show {
         this.listOfActors = listOfActors;
     }
 
-    public boolean changeActor(Actor newActor, String surnamePrev){
+    public void changeActor(Actor newActor, String surnamePrev){
+        boolean isSet = false;
         for (int i = 0; i < listOfActors.size(); i++) {
             Actor currentActor = listOfActors.get(i);
             if (currentActor.getSurname().equals(surnamePrev)) {
                 listOfActors.set(i, newActor);
-                return true;
+                isSet = true;
             }
         }
-        return false;
+        if (!isSet){
+            System.out.println("Замена не была произведена. В этом спектакле нет такого актера.");
+        }
     }
 
     public void addActor(Actor actor){
@@ -34,7 +37,9 @@ public class Show {
         listOfActors.add(actor);
     }
 
-    public ArrayList<Actor> getListOfActors(){
-        return listOfActors;
+    public void printActors(){
+        for (Actor actor : listOfActors){
+            System.out.println(actor);
+        }
     }
 }
