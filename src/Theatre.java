@@ -43,50 +43,28 @@ public class Theatre {
         balletSleepingBeauty.addActor(actor2);
         balletSleepingBeauty.addActor(actor3);
 
-        System.out.println("Список актеров Шоу");
-        for (Actor actor : showTrueman.getListOfActors()){
-            System.out.println(actor);
-        }
+        showTrueman.printActors();
+        showTrueman.printDirector();
 
         System.out.println();
-        System.out.println("Список актеров Оперы");
-        for (Actor actor : operaBorisGodunov.getListOfActors()){
-            System.out.println(actor);
-        }
+        operaBorisGodunov.printActors();
+        operaBorisGodunov.printDirector();
 
         System.out.println();
-        System.out.println("Список актеров Балета");
-        for (Actor actor : balletSleepingBeauty.getListOfActors()){
-            System.out.println(actor);
-        }
-
-        if (balletSleepingBeauty.changeActor(actor1, "Керри")){
-            System.out.println();
-            System.out.println("Новый список актеров Балета");
-            for (Actor actor : balletSleepingBeauty.getListOfActors()){
-                System.out.println(actor);
-            }
-        } else {
-            System.out.println();
-            System.out.println("Замена не была произведена. В этом спектакле нет такого актера.");
-        }
-
-        if (operaBorisGodunov.changeActor(actor2, "Кто-то")){
-            System.out.println();
-            System.out.println("Новый список актеров Балета");
-            for (Actor actor : operaBorisGodunov.getListOfActors()){
-                System.out.println(actor);
-            }
-        } else {
-            System.out.println();
-            System.out.println("Замена не была произведена. В этом спектакле нет такого актера.");
-        }
+        balletSleepingBeauty.printActors();
+        balletSleepingBeauty.printDirector();
 
         System.out.println();
-        System.out.println("Либретто оперы:");
-        System.out.println(operaBorisGodunov.getLibrettoText());
+        balletSleepingBeauty.changeActor(actor1, "Керри");
+        System.out.println("Новый список актёров балета после замены:");
+        balletSleepingBeauty.printActors();
+
         System.out.println();
-        System.out.println("Либретто балета:");
-        System.out.println(balletSleepingBeauty.getLibrettoText());
+        operaBorisGodunov.changeActor(actor2, "Кто-то");
+
+        System.out.println();
+        operaBorisGodunov.printLibretto();
+        System.out.println();
+        balletSleepingBeauty.printLibretto();
     }
 }

@@ -13,15 +13,15 @@ public class Show {
         this.listOfActors = listOfActors;
     }
 
-    public boolean changeActor(Actor newActor, String surnamePrev){
+    public void changeActor(Actor newActor, String surnamePrev){
         for (int i = 0; i < listOfActors.size(); i++) {
             Actor currentActor = listOfActors.get(i);
             if (currentActor.getSurname().equals(surnamePrev)) {
                 listOfActors.set(i, newActor);
-                return true;
+                return;
             }
         }
-        return false;
+        System.out.println("Актёр с фамилией \"" + surnamePrev + "\" не найден в спектакле \"" + title + "\".");
     }
 
     public void addActor(Actor actor){
@@ -36,5 +36,16 @@ public class Show {
 
     public ArrayList<Actor> getListOfActors(){
         return listOfActors;
+    }
+
+    public void printActors(){
+        System.out.println("Список актёров спектакля \"" + title + "\":");
+        for (Actor actor : listOfActors) {
+            System.out.println(actor);
+        }
+    }
+
+    public void printDirector(){
+        System.out.println("Режиссёр спектакля \"" + title + "\": " + director.name + " " + director.surname);
     }
 }
