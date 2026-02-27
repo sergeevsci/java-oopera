@@ -1,5 +1,10 @@
 import java.util.ArrayList;
 
+/*
+* Добрый вечер, Сергей! Вроде поправил, спасибо за проверку работы)
+* Хорошего дня!
+* */
+
 public class Theatre {
     public void main(String[] args){
         Director director1 = new Director("Петр","Чайковский", Gender.MALE, 3);
