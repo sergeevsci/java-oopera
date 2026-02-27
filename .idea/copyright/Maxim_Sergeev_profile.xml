@@ -1,0 +1,6 @@
+<component name="CopyrightManager">
+  <copyright>
+    <option name="notice" value="#set(&amp;#36;todayYear = &amp;#36;date.year)&#10;#if (&amp;#36;OWNER != &quot;Maxim Sergeev&quot;)&#10;#set(&amp;#36;date = &amp;#36;todayYear)&#10;#end" />
+    <option name="myName" value="Maxim Sergeev profile" />
+  </copyright>
+</component>
