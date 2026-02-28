@@ -26,4 +26,8 @@ public class Person {
     public int hashCode() {
         return Objects.hash(name, surname, gender);
     }
+
+    public String getName() {
+        return name;
+    }
 }

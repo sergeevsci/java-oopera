@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Show {
     protected String title;
@@ -13,23 +14,25 @@ public class Show {
         this.listOfActors = listOfActors;
     }
 
-    public void changeActor(Actor newActor, String surnamePrev){
-        boolean isSet = false;
-        for (int i = 0; i < listOfActors.size(); i++) {
+    public void changeActor(Actor newActor, String surnamePrev) {
+        List<Integer> matchingIndices = new ArrayList<>(); //массив индексов совпадений-Актеров по фамилии, которую хотим менять.
+
+        for (int i = 0; i < listOfActors.size(); i++) { // Все индексы актёров с заданной фамилией
             Actor currentActor = listOfActors.get(i);
-            if (currentActor.getSurname().equals(surnamePrev)) { //если фамилия текущего актера равна фамилии
-                // актера назначенного под замену, то
-                if (newActor.getSurname().equals(surnamePrev)){ //если фамилия нового актера равна surnamePrev - предупреждение и отмена замены.
-                    System.out.println("Замена не была произведена. У заменяемого актера такая же фамилия, " +
-                            "как и у заменяющего актера.");
-                    return;
-                }
-                listOfActors.set(i, newActor);
-                isSet = true;
+            if (currentActor.getSurname().equals(surnamePrev)) {
+                matchingIndices.add(i);
             }
         }
-        if (!isSet){
-            System.out.println("Замена не была произведена. В этом спектакле нет такого актера.");
+
+        if (matchingIndices.isEmpty()) {
+            System.out.println("Замена не была произведена. В этом спектакле нет актёра с фамилией '" + surnamePrev + "'.");
+        } else if (matchingIndices.size() > 1) {
+            System.out.println("Замена не была произведена. В спектакле найдено " + matchingIndices.size() +
+                    " актёров с фамилией '" + surnamePrev + "'. Не ясно кого конкретно надо заменить.");
+        } else { //только если там всего один такой актер меняем
+            int indexReplace = matchingIndices.get(0);
+            listOfActors.set(indexReplace, newActor);
+            System.out.println("Актёр с фамилией '" + surnamePrev + "' успешно заменён на " + newActor.getName() + " " + newActor.getSurname());
         }
     }
 

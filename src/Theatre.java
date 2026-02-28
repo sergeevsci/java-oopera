@@ -13,6 +13,9 @@ public class Theatre {
         Actor actor2 = new Actor("Джим", "Керри", Gender.MALE, 192);
         Actor actor3 = new Actor("Варвара", "Никитина", Gender.FEMALE, 165);
 
+        //Actor actor4 = new Actor("Николь", "Никитина", Gender.FEMALE, 165);
+        //Actor actor5 = new Actor("Фурина", "Никитина", Gender.FEMALE, 165);
+
         Person musicAuthor = new Person("Эннио", "Морриконе", Gender.MALE);
         Person choreographer = new Person("Мариус", "Петипа", Gender.MALE);
 
@@ -31,6 +34,8 @@ public class Theatre {
                 " Кремле и ждать там приказаний».", 15);
         operaBorisGodunov.addActor(actor1);
         operaBorisGodunov.addActor(actor3);
+
+        //operaBorisGodunov.addActor(actor4);
 
         Ballet balletSleepingBeauty = new Ballet("Спящая красавица", 130, director2, new ArrayList<>(),
                 musicAuthor, "Пролог. Король и королева празднуют рождение дочери — " +
@@ -66,6 +71,7 @@ public class Theatre {
 
         System.out.println();
         operaBorisGodunov.changeActor(actor2, "Кто-то");
+        //operaBorisGodunov.changeActor(actor5, "Никитина");
         System.out.println();
         System.out.println("Список актеров Оперы");
         operaBorisGodunov.printActors();
