@@ -3,6 +3,14 @@ import java.util.Objects;
 public class Actor extends Person {
     private int height;
 
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
     public Actor(String name, String surname, Gender gender, int height) {
         super(name, surname, gender);
         this.height = height;

@@ -17,7 +17,13 @@ public class Show {
         boolean isSet = false;
         for (int i = 0; i < listOfActors.size(); i++) {
             Actor currentActor = listOfActors.get(i);
-            if (currentActor.getSurname().equals(surnamePrev)) {
+            if (currentActor.getSurname().equals(surnamePrev)) { //если фамилия текущего актера равна фамилии
+                // актера назначенного под замену, то
+                if (newActor.getSurname().equals(surnamePrev)){ //если фамилия нового актера равна surnamePrev - предупреждение и отмена замены.
+                    System.out.println("Замена не была произведена. У заменяемого актера такая же фамилия, " +
+                            "как и у заменяющего актера.");
+                    return;
+                }
                 listOfActors.set(i, newActor);
                 isSet = true;
             }
@@ -41,5 +47,9 @@ public class Show {
         for (Actor actor : listOfActors){
             System.out.println(actor);
         }
+    }
+
+    public void printDirector(){
+        System.out.println(director);
     }
 }
